@@ -41,14 +41,14 @@ function App() {
 
   const playMusic = () => {
     setIsMusicPlaying(true);
-    const audio = new Audio('..\public\Super Mario Bros. medley.mp3');
+    const audio = new Audio('/Super Mario Bros. medley.mp3');
     audio.loop = true;
     audio.play();
   };
 
   const stopMusic = () => {
     setIsMusicPlaying(false);
-    const audio = new Audio('..\public\Super Mario Bros. medley.mp3');
+    const audio = new Audio('/Super Mario Bros. medley.mp3');
     audio.pause();
   };
 
