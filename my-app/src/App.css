@@ -23,7 +23,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   background-color: #5c94fc;
-  background-image: url('C:\Users\90546\Documents\GitHub\AIProject\my-app\public\backgrounmario.jpg');
+  background-image: url('/Users/berkakaz/Documents/GitHub/AIProject/my-app/public/backgrounmario.jpg');
   background-size: cover;
   background-position: center bottom; /* Arka planın ortalanmış ve alttan başlamasını sağlar */
   background-attachment: fixed; /* Sayfa kaydırıldığında arka planın sabit kalmasını sağlar */
@@ -128,7 +128,7 @@
 .image {
   width: 20%;
   height: 20%;
-  background-image: url('C:\Users\90546\Documents\GitHub\AIProject\my-app\public\SUPER-AI-21-04-2024.png');
+  background-image: url('/Users/berkakaz/Documents/GitHub/AIProject/my-app/public/SUPER-AI-21-04-2024.png');
   background-size: cover;
   background-position: top;
 }
@@ -194,6 +194,35 @@
   word-break: break-word;
   box-sizing: border-box;
 }
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.redirect-button {
+  background-color: #61dafb;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.redirect-button:hover {
+  background-color: #21a1f1;
+}
+
 
 /* font embed */
 @font-face {
