@@ -3,6 +3,7 @@ import './App.css';
 
 function CurrentPage() {
   const [inputText, setInputText] = useState('');
+  const [messages, setMessages] = useState<{ text: string, isUser: boolean }[]>([]);
   const [placeholder, setPlaceholder] = useState<string>('Type something...');
   const [characterPosition, setCharacterPosition] = useState(50);
   const [obstacles] = useState<number[]>([]);
@@ -15,7 +16,9 @@ function CurrentPage() {
 
   const handleSubmit = () => {
     if (inputText.trim() !== '') {
-      console.log(inputText);
+      setMessages([...messages, { text: inputText, isUser: true }]);
+      // Add bot response
+      setMessages(prevMessages => [...prevMessages, { text: inputText, isUser: true }, { text: 'Bot response goes here...', isUser: false }]);
       setInputText('');
       setPlaceholder('Type something...');
     }
@@ -84,24 +87,25 @@ function CurrentPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="image"></div>
-        <input
-          className='text'
-          type="text"
-          value={inputText}
-          onChange={handleInputChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onKeyPress={handleKeyPress}
-          placeholder={placeholder}
-        />
-        <input
-          className='answer'
-          type="text"
-          placeholder={'Answer will be here...'}
-        />
-        <div className="box"></div>
-        <button className="super-mario-button" onClick={handleSubmit}>SUBMIT</button>
+        <div className="chat-container">
+          {messages.map((message, index) => (
+            <div key={index} className={`message ${message.isUser ? 'user' : 'bot'}`}>
+              <div className="message-content">{message.text}</div>
+            </div>
+          ))}
+        </div>
+        <div className="input-container">
+          <input
+            type="text"
+            value={inputText}
+            onChange={handleInputChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onKeyPress={handleKeyPress}
+            placeholder={placeholder}
+          />
+          <button onClick={handleSubmit}>Send</button>
+        </div>
         <button className="music-button" onClick={isMusicPlaying ? stopMusic : playMusic}>
           {isMusicPlaying ? 'Stop Music' : 'Play Music'}
         </button>

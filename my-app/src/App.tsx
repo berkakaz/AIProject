@@ -40,7 +40,7 @@ function Home() {
         <div className="cloud cloud4"></div>
         <div className="character" style={{ left: `${characterPosition}px` }}></div>
         <Link to="/current-page">
-          <button className="redirect-button">Go to Current Page</button>
+        <button className="super-mario-start-button">START</button>
         </Link>
         <div className="box"></div>
       </header>

@@ -1,6 +1,9 @@
 /* App CSS */
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .App-logo {
@@ -19,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
   background-color: #5c94fc;
@@ -27,7 +30,8 @@
   background-size: cover;
   background-position: center bottom; /* Arka planın ortalanmış ve alttan başlamasını sağlar */
   background-attachment: fixed; /* Sayfa kaydırıldığında arka planın sabit kalmasını sağlar */
-  height: 100vh;
+  height: 100%;
+  padding: 20px;
   position: relative;
   overflow-y: hidden; /* Dikey scroll'u engeller */
   overflow-x: hidden; /* Dikey scroll'u engeller */
@@ -45,6 +49,75 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse; /* Son mesajlar aşağıda olacak şekilde tersine çevirir */
+  padding: 250px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  background-color: #f9f9f9;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message-content {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.message.user .message-content {
+  background-color: #dcf8c6;
+  text-align: right;
+}
+
+.message.bot .message-content {
+  background-color: #ececec;
+  text-align: left;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.input-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #0056b3;
 }
 
 .text {
@@ -187,6 +260,40 @@
   text-transform: uppercase;
   text-shadow: .025em .0625em 0 var(--shadow);
   margin: 20px 0; /* .super-mario-button ile aynı boyut */
+  padding: 15px 25px; /* .super-mario-button ile aynı boyut */
+  border-radius: 12px;
+  letter-spacing: .05em;
+  line-height: 1.2;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.super-mario-start-button {
+  --text: #fed3ce;
+  --shadow: #010100;
+  --container: #a55800;  
+  font-size: 16px; /* .super-mario-button ile aynı boyut */
+  font-family: 'SuperPlumberBrothers', sans-serif;
+  font-weight: 500;
+  color: var(--text);
+  background:
+    no-repeat top .1em left .1em / .0625em .0625em linear-gradient(var(--text), var(--text)),
+    no-repeat top .125em left .125em / .0625em .0625em linear-gradient(var(--shadow), var(--shadow)),
+    no-repeat top .1em right .1em / .0625em .0625em linear-gradient(var(--text), var(--text)),
+    no-repeat top .125em right .075em / .0625em .0625em linear-gradient(var(--shadow), var(--shadow)),
+    no-repeat bottom .1em right .1em / .0625em .0625em linear-gradient(var(--text), var(--text)),
+    no-repeat bottom .075em right .075em / .0625em .0625em linear-gradient(var(--shadow), var(--shadow)),    
+    no-repeat bottom .1em left .1em / .0625em .0625em linear-gradient(var(--text), var(--text)),
+    no-repeat bottom .075em left .125em / .0625em .0625em linear-gradient(var(--shadow), var(--shadow)),
+    no-repeat top .03125em left .03125em / calc(100% - .0625em) calc(100% - .0625em) linear-gradient(var(--container), var(--container)),        
+    no-repeat top 0 left .03125em / calc(100% - .0625em) 100% linear-gradient(to bottom, var(--text) 50%, var(--shadow) 50%),    
+    no-repeat top .03125em left / 100% calc(100% - .0625em) linear-gradient(to right, var(--text) 50%, var(--shadow) 50%);
+  display: block;
+  max-width: 80%;  
+  text-align: start;  
+  text-transform: uppercase;
+  text-shadow: .025em .0625em 0 var(--shadow);
+  margin: 20px 20px; /* .super-mario-button ile aynı boyut */
   padding: 15px 25px; /* .super-mario-button ile aynı boyut */
   border-radius: 12px;
   letter-spacing: .05em;
