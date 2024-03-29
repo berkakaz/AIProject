@@ -55,7 +55,7 @@
   flex: 1;
   overflow-y: auto;
   display: flex;
-  flex-direction: column-reverse; /* Son mesajlar aşağıda olacak şekilde tersine çevirir */
+  flex-direction: column; /* Son mesajlar aşağıda olacak şekilde tersine çevirir */
   padding: 250px;
   border: 1px solid #ccc;
   border-radius: 10px;

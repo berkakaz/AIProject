@@ -16,8 +16,8 @@ function CurrentPage() {
 
   const handleSubmit = () => {
     if (inputText.trim() !== '') {
-      setMessages([...messages, { text: inputText, isUser: true }]);
-      // Add bot response
+      // Kullanıcı mesajını ekleyin
+      // Bot cevabını ekleyin
       setMessages(prevMessages => [...prevMessages, { text: inputText, isUser: true }, { text: 'Bot response goes here...', isUser: false }]);
       setInputText('');
       setPlaceholder('Type something...');
@@ -110,7 +110,6 @@ function CurrentPage() {
           {isMusicPlaying ? 'Stop Music' : 'Play Music'}
         </button>
 
-        <div className="character" style={{ left: `${characterPosition}px` }}></div>
 
         <div className="cloud cloud1"></div>
         <div className="cloud cloud2"></div>
