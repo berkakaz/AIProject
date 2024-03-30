@@ -56,7 +56,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column; /* Son mesajlar aşağıda olacak şekilde tersine çevirir */
-  padding: 250px;
+  padding: 200px;
   border: 1px solid #ccc;
   border-radius: 10px;
   margin-bottom: 50px;
@@ -76,16 +76,16 @@
 .message-content {
   max-width: 60%;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .message.user .message-content {
-  background-color: #dcf8c6;
+  background-color: #59af17;
   text-align: right;
 }
 
 .message.bot .message-content {
-  background-color: #ececec;
+  background-color: #beafaf;
   text-align: left;
 }
 
@@ -94,14 +94,13 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border-top: 1px solid #ccc;
 }
 
 .input-container input {
   flex: 1;
   padding: 10px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 50px;
   border: 1px solid #ccc;
   margin-right: 10px;
 }
