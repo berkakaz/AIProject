@@ -6,6 +6,8 @@ import CurrentPage from './Current';
 function Home() {
   const [characterPosition, setCharacterPosition] = useState(50);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  let audio: HTMLAudioElement | null = null;
 
   useEffect(() => {
     const moveRightInterval = setInterval(() => {
@@ -30,6 +32,20 @@ function Home() {
     };
   }, [windowWidth]);
 
+  const playMusic = () => {
+    setIsMusicPlaying(true);
+    audio = new Audio('/Super Mario Bros. medley.mp3');
+    audio.loop = true;
+    audio.play();
+  };
+
+  const stopMusic = () => {
+    setIsMusicPlaying(false);
+    if (audio) {
+      audio.pause();
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,9 +56,12 @@ function Home() {
         <div className="cloud cloud4"></div>
         <div className="character" style={{ left: `${characterPosition}px` }}></div>
         <Link to="/current-page">
-        <button className="super-mario-start-button">START</button>
+          <button className="super-mario-start-button">START</button>
         </Link>
         <div className="box"></div>
+        <button className="music-button" onClick={isMusicPlaying ? stopMusic : playMusic}>
+          {isMusicPlaying ? 'Stop Music' : 'Play Music'}
+        </button>
       </header>
     </div>
   );

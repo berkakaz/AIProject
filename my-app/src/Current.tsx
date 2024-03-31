@@ -8,7 +8,6 @@ function CurrentPage() {
   const [characterPosition, setCharacterPosition] = useState(50);
   const [obstacles] = useState<number[]>([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
@@ -40,19 +39,6 @@ function CurrentPage() {
     if (inputText.trim() === '') {
       setPlaceholder('Type something...');
     }
-  };
-
-  const playMusic = () => {
-    setIsMusicPlaying(true);
-    const audio = new Audio('/Super Mario Bros. medley.mp3');
-    audio.loop = true;
-    audio.play();
-  };
-
-  const stopMusic = () => {
-    setIsMusicPlaying(false);
-    const audio = new Audio('/Super Mario Bros. medley.mp3');
-    audio.pause();
   };
 
   useEffect(() => {
@@ -106,9 +92,7 @@ function CurrentPage() {
           />
           <button onClick={handleSubmit}>Send</button>
         </div>
-        <button className="music-button" onClick={isMusicPlaying ? stopMusic : playMusic}>
-          {isMusicPlaying ? 'Stop Music' : 'Play Music'}
-        </button>
+        
 
 
         <div className="cloud cloud1"></div>
