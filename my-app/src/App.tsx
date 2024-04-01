@@ -7,7 +7,7 @@ function Home() {
   const [characterPosition, setCharacterPosition] = useState(50);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-  let audio: HTMLAudioElement | null = null;
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const moveRightInterval = setInterval(() => {
@@ -33,17 +33,22 @@ function Home() {
   }, [windowWidth]);
 
   const playMusic = () => {
+    if (audio) {
+      audio.play();
+    } else {
+      const newAudio = new Audio('/Super Mario Bros. medley.mp3');
+      newAudio.loop = true;
+      newAudio.play();
+      setAudio(newAudio);
+    }
     setIsMusicPlaying(true);
-    audio = new Audio('/Super Mario Bros. medley.mp3');
-    audio.loop = true;
-    audio.play();
   };
 
   const stopMusic = () => {
-    setIsMusicPlaying(false);
     if (audio) {
       audio.pause();
     }
+    setIsMusicPlaying(false);
   };
 
   return (
