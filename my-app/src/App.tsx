@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     const moveRightInterval = setInterval(() => {
-      setCharacterPosition(prevPosition => {
+      setCharacterPosition((prevPosition) => {
         const newPosition = prevPosition + 10;
         if (newPosition >= windowWidth) {
           return 50;
@@ -51,6 +51,14 @@ function Home() {
     setIsMusicPlaying(false);
   };
 
+  const toggleMusic = () => {
+    if (isMusicPlaying) {
+      stopMusic();
+    } else {
+      playMusic();
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -64,9 +72,10 @@ function Home() {
           <button className="super-mario-start-button">START</button>
         </Link>
         <div className="box"></div>
-        <button className="music-button" onClick={isMusicPlaying ? stopMusic : playMusic}>
-          {isMusicPlaying ? 'Stop Music' : 'Play Music'}
-        </button>
+        <button
+          className={`super-mario-button music-button ${isMusicPlaying ? 'playing' : ''}`}
+          onClick={toggleMusic}
+        ></button>
       </header>
     </div>
   );
