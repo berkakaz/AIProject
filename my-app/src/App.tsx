@@ -14,6 +14,8 @@ function App() {
     setInputText(''); // Text alanını temizle
   };
 
+  //backend connection will be created
+
   return (
     <div className="App">
       <header className="App-header">
