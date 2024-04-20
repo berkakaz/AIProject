@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [inputText, setInputText] = useState<string>('');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log(inputText);
+    setInputText(''); // Text alanını temizle
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input className='text'
+          type="text"
+          value={inputText}
+          onChange={handleInputChange}
+          placeholder="Birşeyler yaz..."
+        />
+        <button className="button" onClick={handleSubmit}>Gönder</button>
       </header>
     </div>
   );
