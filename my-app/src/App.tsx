@@ -2,7 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [inputText, setInputText] = useState<string>('');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log(inputText);
+    setInputText(''); // Text alanını temizle
+  };
+
   const [characterPosition, setCharacterPosition] = useState(50); // Mario'nun başlangıç pozisyonu
+  const [obstacles, setObstacles] = useState<number[]>([]); // Engellerin pozisyonlarını saklamak için bir dizi
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Pencere genişliğini izlemek için state
 
   useEffect(() => {
@@ -33,11 +45,29 @@ function App() {
     };
   }, [windowWidth]); // windowWidth değiştiğinde yeniden çalışır
 
+  // Engelleri oluşturmak için map fonksiyonunu kullanıyoruz
+  const renderObstacles = () => {
+    return obstacles.map((position, index) => (
+      <div key={index} className="obstacle" style={{ left: `${position}px` }}></div>
+    ));
+  };
+
   return (
     <div className="App">
       <header className="App-header">
+        <input className='text'
+          type="text"
+          value={inputText}
+          onChange={handleInputChange}
+          placeholder="Birşeyler yaz..."
+        />
+        <button className="button" onClick={handleSubmit}>Gönder</button>
+
         {/* Mario karakteri */}
         <div className="character" style={{ left: `${characterPosition}px` }}></div>
+
+        {/* Engelleri render etmek için */}
+        {renderObstacles()}
       </header>
     </div>
   );

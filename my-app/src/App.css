@@ -24,7 +24,7 @@
   background-color: #5c94fc;
   background-image: url('/Users/berkakaz/Documents/GitHub/AIProject/my-app/public/wp7619435-1129158146.jpeg');
   background-size: cover;
-  height: 140vh;
+  height: 100vh;
   position: relative;
 }
 
@@ -80,17 +80,17 @@
   background-color: #5c94fc;
   background-image: url('/Users/berkakaz/Documents/GitHub/AIProject/my-app/public/wp7619435-1129158146.jpeg');
   background-size: cover;
-  height: 140vh;
+  height: 130vh;
   position: relative;
 }
 
 /* Mario karakteri */
 .character {
   position: absolute;
-  bottom: 0;
+  bottom: 40px;
   left: 50px; /* Başlangıç pozisyonu */
   width: 40px;
-  height: 50px;
+  height: 60px;
   background-image: url('/Users/berkakaz/Documents/GitHub/AIProject/my-app/public/mariobros-ayr-intro-3298581737.png');
   background-size: contain;
 }
