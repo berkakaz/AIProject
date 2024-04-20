@@ -55,6 +55,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <div className="image"></div>
         <input
           className='text'
           type="text"
@@ -62,6 +63,8 @@ function App() {
           onChange={handleInputChange}
           placeholder="Birşeyler yaz..."
         />
+        <div className="box">
+  </div>
         <button className="super-mario-button" onClick={handleSubmit}>Gönder</button>
 
         {/* Mario karakteri */}

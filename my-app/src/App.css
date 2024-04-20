@@ -50,6 +50,19 @@
 }
 
 
+.h1,
+.h2 {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  position: fixed;
+  top: 50px;
+  --text: #fed3ce;
+}
+
+
+
 .super-mario-button {
   background-color: #c62828; /* Kırmızı renk */
   border: none;
@@ -64,6 +77,7 @@
   border-radius: 12px;
   position: relative;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .super-mario-button::before {
@@ -91,6 +105,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 20px; /* Ensures rounded corners for the text area */
+  margin-top: 100px;
 }
 
 .text:hover {
@@ -144,5 +159,40 @@
   }
   100% {
     margin-left: 100%;
+  }
+}
+
+.image {
+  width: 20%;
+  height: 20%;
+  background-image: url('C:\Users\90546\Documents\GitHub\AIProject\my-app\public\SUPER-AI-21-04-2024.png');
+  background-size: cover;
+  background-position: top;
+}
+
+.box {
+  background-image: url("https://media.giphy.com/media/GPtziRMoxcwuc/giphy.gif");
+  background-size: cover;
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  bottom: 250px;
+  left: 70vw;
+  z-index: 1;
+}
+
+.box_animation {
+  animation: animateBox 0.5s ease forwards;
+}
+
+@keyframes animateBox {
+  0% {
+    bottom: 250px;
+  }
+  50% {
+    bottom: 260px;
+  }
+  100% {
+    transform: scale(0);
   }
 }
