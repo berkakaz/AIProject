@@ -55,16 +55,23 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <input className='text'
+        <input
+          className='text'
           type="text"
           value={inputText}
           onChange={handleInputChange}
           placeholder="Birşeyler yaz..."
         />
-        <button className="button" onClick={handleSubmit}>Gönder</button>
+        <button className="super-mario-button" onClick={handleSubmit}>Gönder</button>
 
         {/* Mario karakteri */}
         <div className="character" style={{ left: `${characterPosition}px` }}></div>
+
+        {/* Bulutlar */}
+        <div className="cloud cloud1"></div>
+        <div className="cloud cloud2"></div>
+        <div className="cloud cloud3"></div>
+        <div className="cloud cloud4"></div>
 
         {/* Engelleri render etmek için */}
         {renderObstacles()}
