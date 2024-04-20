@@ -3,15 +3,39 @@ import './App.css';
 
 function App() {
   const [inputText, setInputText] = useState<string>('');
+  const [placeholder, setPlaceholder] = useState<string>('Type something...');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
   };
 
   const handleSubmit = () => {
-    console.log(inputText);
-    setInputText(''); // Text alanını temizle
+    if (inputText.trim() !== '') {
+      console.log(inputText);
+      setInputText(''); // Text alanını temizle
+      setPlaceholder('Type something...');
+    }
   };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
+  const handleFocus = () => {
+    if (inputText.trim() === '') {
+      setPlaceholder('');
+    }
+  };
+
+  const handleBlur = () => {
+    if (inputText.trim() === '') {
+      setPlaceholder('Type something...');
+    }
+  };
+
+  
 
   const [characterPosition, setCharacterPosition] = useState(50); // Mario'nun başlangıç pozisyonu
   const [obstacles, setObstacles] = useState<number[]>([]); // Engellerin pozisyonlarını saklamak için bir dizi
@@ -61,11 +85,14 @@ function App() {
           type="text"
           value={inputText}
           onChange={handleInputChange}
-          placeholder="Birşeyler yaz..."
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onKeyPress={handleKeyPress}
+          placeholder={placeholder}
         />
         <div className="box">
   </div>
-        <button className="super-mario-button" onClick={handleSubmit}>Gönder</button>
+        <button className="super-mario-button" onClick={handleSubmit}>SUBMIT</button>
 
         {/* Mario karakteri */}
         <div className="character" style={{ left: `${characterPosition}px` }}></div>
