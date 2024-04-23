@@ -37,7 +37,7 @@ function App() {
 
   
   const [characterPosition, setCharacterPosition] = useState(50); // Mario'nun başlangıç pozisyonu
-  const [obstacles, setObstacles] = useState<number[]>([]); // Engellerin pozisyonlarını saklamak için bir dizi
+  const [obstacles] = useState<number[]>([]); // Engellerin pozisyonlarını saklamak için bir dizi
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Pencere genişliğini izlemek için state
 
   useEffect(() => {

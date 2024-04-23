@@ -14,7 +14,7 @@ const config = {
 
 const requestBody = {
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "2+2 kaçtır ?" }],
+    messages: [{ role: "user", content: 'Say this is a test!' }],
     temperature: 0.7,
 };
     
