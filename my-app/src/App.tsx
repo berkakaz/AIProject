@@ -89,6 +89,11 @@ function App() {
           onKeyPress={handleKeyPress}
           placeholder={placeholder}
         />
+        <input
+          className='answer'
+          type="text"
+          placeholder={'Answer will be here...'}
+        />
         <div className="box">
   </div>
         <button className="super-mario-button" onClick={handleSubmit}>SUBMIT</button>

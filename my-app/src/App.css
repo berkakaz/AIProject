@@ -48,7 +48,7 @@
 }
 
 .text {
-  padding: 15px 32px;
+  padding: 15px 82px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -57,6 +57,17 @@
   cursor: pointer;
   border-radius: 20px; /* Ensures rounded corners for the text area */
   margin-top: 100px;
+}
+
+.answer {
+  padding: 80px 82px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px; /* Ensures rounded corners for the text area */
+  margin-top: 30px;
 }
 
 .text:hover {
