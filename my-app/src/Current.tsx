@@ -92,9 +92,7 @@ function CurrentPage() {
           />
           <button onClick={handleSubmit}>Send</button>
         </div>
-        
-
-
+      
         <div className="cloud cloud1"></div>
         <div className="cloud cloud2"></div>
         <div className="cloud cloud3"></div>
